@@ -1,15 +1,25 @@
 package com.minzino.portfolio.domain.entity
 
 import jakarta.persistence.*
+import java.time.LocalDate
 
 @Entity
-class Achievement : BaseEntity() {
+class Achievement(
+    //놀랍게도 생성자
+    title: String,
+    description: String,
+    achievedDate: LocalDate?,
+    host: String,
+    isActive: Boolean
+) : BaseEntity() {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "achievement_id")
-    val id: Long? = null;
+    val id: Long? = null
 
-
-
-
+    var title: String = title
+    var description: String = description
+    var achievedDate: LocalDate? = achievedDate
+    var host: String = host
+    var isActive: Boolean = isActive
 }
