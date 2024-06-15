@@ -9,4 +9,6 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface LinkRepository: JpaRepository<Link,Long> {
+    fun findAllByIsActive(isActive:Boolean): List<Link>
+
 }
