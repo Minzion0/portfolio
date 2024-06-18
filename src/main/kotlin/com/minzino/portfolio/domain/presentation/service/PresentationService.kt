@@ -44,5 +44,5 @@ class PresentationService(
         return projects.map { ProjectDTO(it) }
     }
 
-    
+
 }
