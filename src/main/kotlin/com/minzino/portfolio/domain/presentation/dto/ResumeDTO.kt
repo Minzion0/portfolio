@@ -25,7 +25,7 @@ class ResumeDTO(
             title = it.title,
             description = it.description,
             host = it.host,
-            achieveDate = it.achievedDate
+            achievedDate = it.achievedDate
                 ?.format(DateTimeFormatter.ISO_LOCAL_DATE)
                 ?.replace("-",".")
         )
