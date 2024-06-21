@@ -39,6 +39,6 @@ class AdminProjectSkillViewController(
         )
         model.addAllAttributes(pageAttribute)
         return "admlin/page-table"
-        
+
     }
 }

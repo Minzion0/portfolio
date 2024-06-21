@@ -13,7 +13,7 @@ class Skill(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "skill_id")
-    val id: Long? = null;
+    var id: Long? = null;
 
     var name: String = name
 

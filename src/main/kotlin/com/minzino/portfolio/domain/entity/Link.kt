@@ -12,7 +12,7 @@ class Link(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "link_id")
-    val id: Long? = null
+    var id: Long? = null
 
     var name: String = name
 

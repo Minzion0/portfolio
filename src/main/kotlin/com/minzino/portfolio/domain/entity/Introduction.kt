@@ -10,7 +10,7 @@ class Introduction(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "introduction_id")
-    val id: Long? = null
+    var id: Long? = null
 
     var content: String = content
 

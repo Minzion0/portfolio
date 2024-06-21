@@ -15,7 +15,7 @@ class Achievement(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "achievement_id")
-    val id: Long? = null
+    var id: Long? = null
 
     var title: String = title
     var description: String = description
