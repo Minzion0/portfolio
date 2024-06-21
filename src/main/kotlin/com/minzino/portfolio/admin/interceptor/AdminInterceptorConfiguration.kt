@@ -11,7 +11,7 @@ class AdminInterceptorConfiguration(
 
     override fun addInterceptors(registry: InterceptorRegistry) {
         registry.addInterceptor(adminInterceptor)
-            .addPathPatterns("/admin?**")
+            .addPathPatterns("/admin/**")
             .excludePathPatterns("/assets/**", "/css/**", "/js/**", "h2**")
     }
 }
