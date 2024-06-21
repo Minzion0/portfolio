@@ -35,7 +35,7 @@ class AdminAchievementViewController(
         val pageAttribute = mutableMapOf<String,Any>(
             Pair("menuName","Resume"),
             Pair("pageName",table.name),
-            Pair("pageName",true),
+            Pair("editable",true),
             Pair("deletable", false),
             Pair("hasDetails",false)
         )
