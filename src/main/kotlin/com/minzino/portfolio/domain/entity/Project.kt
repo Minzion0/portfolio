@@ -16,7 +16,7 @@ class Project(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "project_id")
-    val id: Long? = null;
+    var id: Long? = null;
 
     var name: String = name
 

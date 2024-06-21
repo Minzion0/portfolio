@@ -16,7 +16,7 @@ class Experience(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "experience_id")
-    val id: Long? = null;
+    var id: Long? = null;
 
     var title: String = title
 
