@@ -46,3 +46,14 @@ kotlin {
 tasks.withType<Test> {
     useJUnitPlatform()
 }
+val profile = if (project.hasProperty("profile")) project.property("profile").toString() else "default"
+
+tasks.withType<org.springframework.boot.gradle.tasks.run.BootRun> {
+    systemProperty("spring.profiles.active", profile)
+}
+
+tasks.withType<org.springframework.boot.gradle.tasks.bundling.BootJar> {
+    doLast {
+        println("Building with profile: $profile")
+    }
+}
