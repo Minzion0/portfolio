@@ -1,15 +1,8 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" th:replace="~{admin/layouts/layout-admin::layout(~{::main})}">
 
-<div th:replace="~{admin/fragements/fragment-head::head}"></div>
+
 <body>
-
-  <!-- ======= Header ======= -->
-  <div th:replace="~{admin/fragements/fragment-header::header}"></div>
-
-  <!-- ======= Sidebar ======= -->
-  <div th:replace="~{admin/fragements/fragment-sidebar::sidebar}"></div>
-
   <main id="main" class="main">
 
     <div class="pagetitle">
@@ -758,17 +751,6 @@
     </section>
 
   </main><!-- End #main -->
-
-  <!-- ======= Footer ======= -->
-  <div th:replace="~{admin/fragements/fragment-footer::footer}"></div>
-
-  <div th:replace="~{admin/fragements/fragment-foot::foot}"></div>
-
-  <div th:replace="~{admin/fragements/fragment-script-util :: util}"></div>
-
-
-
-
 </body>
 
 </html>
