@@ -10,7 +10,7 @@ import org.springframework.stereotype.Controller
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.*
 
-@Controller
+@RestController
 @RequestMapping("/admin/api/introductions")
 class AdminIntroductionApiController(
     private val adminIntroductionService: AdminIntroductionService

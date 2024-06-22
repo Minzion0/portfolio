@@ -15,7 +15,7 @@ import org.springframework.stereotype.Controller
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.*
 
-@Controller
+@RestController
 @RequestMapping("/admin/api/projects/skills")
 class AdminProjectSkillApiController(
     private val adminProjectSkillService: AdminProjectSkillService

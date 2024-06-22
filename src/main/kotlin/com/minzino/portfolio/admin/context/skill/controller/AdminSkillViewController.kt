@@ -15,28 +15,30 @@ import org.springframework.web.bind.annotation.RequestMapping
 class AdminSkillViewController(
     private val adminSkillService: AdminSkillService
 ) {
+
     @GetMapping
-    fun skill(model: Model):String {
-        val formElements= listOf<FormElementDTO>(
-            TextFormElementDTO("name",2),
-            SelectFormElementDTO("type",2, SkillType.values().map { it.name }.toList()),
-            SelectFormElementDTO("isActive",2, listOf(true.toString(),false.toString()))
+    fun skill(model: Model): String {
+
+        val formElements = listOf<FormElementDTO>(
+            TextFormElementDTO("name", 2),
+            SelectFormElementDTO("type", 2, SkillType.values().map { it.name }.toList()),
+            SelectFormElementDTO("isActive", 2, listOf(true.toString(), false.toString()))
         )
-        model.addAttribute("formElements",formElements)
+        model.addAttribute("formElements", formElements)
 
         val table = adminSkillService.getSkillTable()
+        model.addAttribute("table", table)
+        model.addAttribute("detailTable", null)
 
-        model.addAttribute("table",table)
-        model.addAttribute("detailTable",null)
-
-        val pageAttribute = mutableMapOf<String,Any>(
-            Pair("menuName","Resume"),
-            Pair("pageName",table.name),
-            Pair("pageName",true),
+        val pageAttributes = mutableMapOf<String, Any>(
+            Pair("menuName", "Resume"),
+            Pair("pageName", table.name),
+            Pair("editable", true),
             Pair("deletable", false),
-            Pair("hasDetails",false)
+            Pair("hasDetails", false),
         )
-        model.addAllAttributes(pageAttribute)
+        model.addAllAttributes(pageAttributes)
+
         return "admin/page-table"
     }
 }

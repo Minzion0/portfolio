@@ -14,28 +14,30 @@ import org.springframework.web.bind.annotation.RequestMapping
 class AdminLinkViewController(
     private val adminLinkService: AdminLinkService
 ) {
+
     @GetMapping
-    fun link(model: Model):String {
-        val formElements= listOf<FormElementDTO>(
-            TextFormElementDTO("name",2),
-            TextFormElementDTO("content",8),
-            SelectFormElementDTO("isActive",2, listOf(true.toString(),false.toString()))
+    fun link(model: Model): String {
+
+        val formElements = listOf<FormElementDTO>(
+            TextFormElementDTO("name", 2),
+            TextFormElementDTO("content", 8),
+            SelectFormElementDTO("isActive", 2, listOf(true.toString(), false.toString()))
         )
-        model.addAttribute("formElements",formElements)
+        model.addAttribute("formElements", formElements)
 
         val table = adminLinkService.getLinkTable()
+        model.addAttribute("table", table)
+        model.addAttribute("detailTable", null)
 
-        model.addAttribute("table",table)
-        model.addAttribute("detailTable",null)
-
-        val pageAttribute = mutableMapOf<String,Any>(
-            Pair("menuName","Index"),
-            Pair("pageName",table.name),
-            Pair("pageName",true),
+        val pageAttributes = mutableMapOf<String, Any>(
+            Pair("menuName", "Index"),
+            Pair("pageName", table.name),
+            Pair("editable", true),
             Pair("deletable", false),
-            Pair("hasDetails",false)
+            Pair("hasDetails", false),
         )
-        model.addAllAttributes(pageAttribute)
+        model.addAllAttributes(pageAttributes)
+
         return "admin/page-table"
     }
 }
