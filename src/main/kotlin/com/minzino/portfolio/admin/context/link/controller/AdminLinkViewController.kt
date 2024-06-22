@@ -36,6 +36,6 @@ class AdminLinkViewController(
             Pair("hasDetails",false)
         )
         model.addAllAttributes(pageAttribute)
-        return "admlin/page-table"
+        return "admin/page-table"
     }
 }

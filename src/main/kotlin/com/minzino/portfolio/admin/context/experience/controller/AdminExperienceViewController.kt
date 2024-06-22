@@ -49,6 +49,6 @@ class AdminExperienceViewController(
             Pair("hasDetails",true)
         )
         model.addAllAttributes(pageAttribute)
-        return "admlin/page-table"
+        return "admin/page-table"
     }
 }

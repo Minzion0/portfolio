@@ -1,6 +1,5 @@
 package com.minzino.portfolio.admin.context.project.controller
 
-import com.minzino.portfolio.admin.context.experience.service.AdminExperienceService
 import com.minzino.portfolio.admin.context.project.service.AdminProjectService
 import com.minzino.portfolio.admin.data.FormElementDTO
 import com.minzino.portfolio.admin.data.SelectFormElementDTO
@@ -17,40 +16,42 @@ class AdminProjectViewController(
 ) {
 
     @GetMapping
-    fun project(model: Model):String{
-        val formElements= listOf<FormElementDTO>(
-            TextFormElementDTO("title",4),
-            TextFormElementDTO("description",8),
-            SelectFormElementDTO("startYear",3,(2010..2030).toList()),
-            SelectFormElementDTO("startMonth",2,(1..12).toList()),
-            SelectFormElementDTO("endYear",3,(2010..2030).toList()),
-            SelectFormElementDTO("endMonth",2,(1..12).toList()),
-            SelectFormElementDTO("isActive",2, listOf(true.toString(),false.toString()))
-        )
-        model.addAttribute("formElements",formElements)
+    fun project(model: Model): String {
 
-        val detailFormElements= listOf<FormElementDTO>(
-            TextFormElementDTO("content",4),
-            TextFormElementDTO("url",6),
-            SelectFormElementDTO("isActive",2, listOf(true.toString(),false.toString())),
-
+        val formElements = listOf<FormElementDTO>(
+            TextFormElementDTO("name", 4),
+            TextFormElementDTO("description", 8),
+            SelectFormElementDTO("startYear", 3, (2010..2030).toList()),
+            SelectFormElementDTO("startMonth", 2, (1..12).toList()),
+            SelectFormElementDTO("endYear", 3, (2010..2030).toList()),
+            SelectFormElementDTO("endMonth", 2, (1..12).toList()),
+            SelectFormElementDTO("isActive", 2, listOf(true.toString(), false.toString()))
         )
-        model.addAttribute("detailFormElements",detailFormElements)
+        model.addAttribute("formElements", formElements)
+
+        val detailFormElements = listOf<FormElementDTO>(
+            TextFormElementDTO("content", 4),
+            TextFormElementDTO("url", 6),
+            SelectFormElementDTO("isActive", 2, listOf(true.toString(), false.toString()))
+        )
+        model.addAttribute("detailFormElements", detailFormElements)
 
         val table = adminProjectService.getProjectTable()
-        model.addAttribute("table",table)
+        model.addAttribute("table", table)
 
-        val detailTable= adminProjectService.getProjectDetailTable(null)
-        model.addAttribute("detailTable",detailTable)
 
-        val pageAttribute = mutableMapOf<String,Any>(
-            Pair("menuName","Project"),
-            Pair("pageName",table.name),
-            Pair("editable",true),
+        val detailTable = adminProjectService.getProjectDetailTable(null)
+        model.addAttribute("detailTable", detailTable)
+
+        val pageAttributes = mutableMapOf<String, Any>(
+            Pair("menuName", "Projects"),
+            Pair("pageName", table.name),
+            Pair("editable", true),
             Pair("deletable", false),
-            Pair("hasDetails",true)
+            Pair("hasDetails", true),
         )
-        model.addAllAttributes(pageAttribute)
-        return "admlin/page-table"
+        model.addAllAttributes(pageAttributes)
+
+        return "admin/page-table"
     }
 }
