@@ -17,7 +17,8 @@ class DataInitializer(
     private val linkRepository: LinkRepository,
     private val skillRepository: SkillRepository,
     private val projectRepository: ProjectRepository,
-    private val experienceRepository: ExperienceRepository
+    private val experienceRepository: ExperienceRepository,
+    private val accountRepository: AccountRepository
 ) {
     //데이터 초기화를 위해 PostConstruct 사용
     @PostConstruct
@@ -165,7 +166,13 @@ class DataInitializer(
 
         projectRepository.saveAll(mutableListOf(project1, project2))
 
+        val account= Account(
+            loginId = "admin1",
+            pw = "\$2a\$10\$Zo3/4S69QEDCfayH/Yp.H.gVqzbe.ePnRsFkIfsyvGy3yW0S5Xmyq"
+        )
+        accountRepository.save(account)
     }
+
 
 
 }
