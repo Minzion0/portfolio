@@ -27,14 +27,10 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
+    implementation("com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.5")
     runtimeOnly("com.h2database:h2")
-    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-thymeleaf
-    implementation("org.springframework.boot:spring-boot-starter-thymeleaf:3.3.0")
-    // https://mvnrepository.com/artifact/mysql/mysql-connector-java
-    implementation("mysql:mysql-connector-java:8.0.33")
+    runtimeOnly("com.mysql:mysql-connector-j")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
 kotlin {
@@ -46,14 +42,4 @@ kotlin {
 tasks.withType<Test> {
     useJUnitPlatform()
 }
-val profile = if (project.hasProperty("profile")) project.property("profile").toString() else "default"
 
-tasks.withType<org.springframework.boot.gradle.tasks.run.BootRun> {
-    systemProperty("spring.profiles.active", profile)
-}
-
-tasks.withType<org.springframework.boot.gradle.tasks.bundling.BootJar> {
-    doLast {
-        println("Building with profile: $profile")
-    }
-}
