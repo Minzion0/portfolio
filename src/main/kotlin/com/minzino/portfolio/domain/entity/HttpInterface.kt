@@ -2,7 +2,6 @@ package com.minzino.portfolio.domain.entity
 
 import jakarta.persistence.*
 import jakarta.servlet.http.HttpServletRequest
-import org.springframework.web.multipart.support.AbstractMultipartHttpServletRequest
 
 @Entity
 class HttpInterface(
@@ -25,7 +24,7 @@ class HttpInterface(
     //연결된 호스트(나자신)의 정보 저장
     var remoteHost: String? = httpServletRequest.remoteHost
     //요청된 URI 저장
-    var requestURI: String? = httpServletRequest.requestURI
+    var requestUri: String? = httpServletRequest.requestURI
     //어떠한 경로로 요첮을 보내오는지 저장
     var userAgent: String?= httpServletRequest.getHeader("user-agent")
 

@@ -1,9 +1,0 @@
-*.log
-*.md
-*.iml
-*.class
-.bash_history
-build/
-target/
-node_modules/
-

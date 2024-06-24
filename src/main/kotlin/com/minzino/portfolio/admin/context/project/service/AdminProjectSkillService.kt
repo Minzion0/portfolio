@@ -3,7 +3,6 @@ package com.minzino.portfolio.admin.context.project.service
 import com.minzino.portfolio.admin.context.project.form.ProjectSkillForm
 import com.minzino.portfolio.admin.data.TableDTO
 import com.minzino.portfolio.admin.exception.AdminBadRequestException
-import com.minzino.portfolio.admin.exception.AdminException
 import com.minzino.portfolio.admin.exception.AdminInternalServerErrorException
 import com.minzino.portfolio.domain.entity.ProjectSkill
 import com.minzino.portfolio.domain.repository.ProjectRepository
@@ -37,7 +36,7 @@ class AdminProjectSkillService(
                 record.add(it.project.name)
                 record.add(it.skill.id.toString())
                 record.add(it.skill.name)
-                record.add(it.createDateTime.toString())
+                record.add(it.createdDateTime.toString())
                 record.add(it.updatedDateTime.toString())
                 records.add(record)
             }

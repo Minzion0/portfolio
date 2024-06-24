@@ -30,7 +30,7 @@ class AdminDashboardService (
         val today= LocalDate.now()
         val startDay = today.minusDays(6)
 
-        return httpInterfaceRepository.countAllByCreateDateTimeBetween(
+        return httpInterfaceRepository.countAllByCreatedDateTimeBetween(
             startDay.atStartOfDay(),
             today.atTime(LocalTime.MAX)
         )
@@ -40,7 +40,7 @@ class AdminDashboardService (
     fun countVisitorsToday():Long {
         val today= LocalDate.now()
 
-        return httpInterfaceRepository.countAllByCreateDateTimeBetween(
+        return httpInterfaceRepository.countAllByCreatedDateTimeBetween(
             today.atStartOfDay(),
             today.atTime(LocalTime.MAX)
         )

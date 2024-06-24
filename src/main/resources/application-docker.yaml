@@ -13,4 +13,5 @@ spring:
     url: jdbc:mysql://mysql:3306/portfolio
     username: root
     password: 8338
+#    nTbQSMFYmt8NlSdCREq2Cw==
     driver-class-name: com.mysql.cj.jdbc.Driver
