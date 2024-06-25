@@ -15,9 +15,10 @@
                 <p></p>
                 <div class="small" th:text="${project.description}">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
                 <p></p>
+                <div class="fw-bold">주요 활동</div>
                 <th:block th:each="detail : ${project.details}">
-                    <div class="small" th:if="${#strings.isEmpty(detail.url)}" th:text="|* ${detail.content}|">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                    <a class="small" target="_blank" th:if="${!#strings.isEmpty(detail.url)}" th:text="|* ${detail.content}|" th:href="${detail.url}">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a>
+                    <div class="small" th:if="${#strings.isEmpty(detail.url)}" th:text="| ${detail.content}|">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+                    <a class="small" target="_blank" th:if="${!#strings.isEmpty(detail.url)}" th:text="| ${detail.content}|" th:href="${detail.url}">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a>
                 </th:block>
             </div>
         </div>
