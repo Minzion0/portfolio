@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        a.no-underline {
+            text-decoration: none;
+            color: inherit; /* 기본 색상을 유지 */
+        }
+    </style>
+</head>
 <body>
 <div th:fragment="card(project)" class="card shadow border-0 rounded-4 mb-5">
     <div class="card-body p-5">
@@ -17,8 +25,8 @@
                 <p></p>
                 <div class="fw-bold">주요 활동</div>
                 <th:block th:each="detail : ${project.details}">
-                    <div class="small" th:if="${#strings.isEmpty(detail.url)}" th:text="| ${detail.content}|">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                    <a class="small" target="_blank" th:if="${!#strings.isEmpty(detail.url)}" th:text="| ${detail.content}|" th:href="${detail.url}">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a>
+                    <div class="small" th:if="${#strings.isEmpty(detail.url)}" th:text="|- ${detail.content}|">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+                    <a class="small fw-bold no-underline" target="_blank" th:if="${!#strings.isEmpty(detail.url)}" th:text="|🔗 ${detail.content}|" th:href="${detail.url}">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a>
                 </th:block>
             </div>
         </div>

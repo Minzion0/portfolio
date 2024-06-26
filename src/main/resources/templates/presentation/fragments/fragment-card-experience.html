@@ -15,7 +15,7 @@
             <div class="col-lg-8">
                 <div class="lead fw-bolder" th:text="${experience.title}">Web Developer</div>
                 <div class="fw-bold">주요 활동</div>
-                <div class="small" th:each="detail : ${experience.details}"th:text="|${detail}|">Lorem ipsum dolor sit amet consectetur adipisicing elit. </div></div>
+                <div class="small" th:each="detail : ${experience.details}"th:text="|- ${detail}|">Lorem ipsum dolor sit amet consectetur adipisicing elit. </div></div>
         </div>
     </div>
 </div>
