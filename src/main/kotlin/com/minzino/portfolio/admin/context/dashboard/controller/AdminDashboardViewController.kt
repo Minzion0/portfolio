@@ -22,7 +22,7 @@ class AdminDashboardViewController(
         val total = adminDashboardService.countVisitorsTotal()
         val weekly = adminDashboardService.countVisitorsWeekly()
         val today = adminDashboardService.countVisitorsToday()
-
+        //카드 색상 설정
         val visitors = listOf(
             VisitorsDTO(name = "Total", count = total, color = "#4154f1", background = "#f6f6fe"),
             VisitorsDTO(name = "Weekly", count = weekly, color = "#2eca6a", background = "#e0f8e9"),
@@ -31,6 +31,7 @@ class AdminDashboardViewController(
         model.addAttribute("visitors", visitors)
 
         val pageAttributes = mutableMapOf<String, Any>(
+            //메뉴설정
             Pair("menuName", ""),
             Pair("pageName", "Dashboard"),
             Pair("editable", false),
