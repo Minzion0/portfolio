@@ -12,7 +12,7 @@ data class ExperienceForm(
 
     @field:NotBlank(message = "필수값 입니다.")
     val description:String,
-    @field:Positive(message = "0보다 커야합니다")
+    @field:Positive(message = "0보다 커야 합니다")
     val startYear : Int,
     @field:Min(value = 1, message = "최소 값은 1입니다.")
     @field:Max(value = 12, message = "최대 값은 12입니다.")
