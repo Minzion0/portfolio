@@ -5,7 +5,7 @@ import jakarta.validation.constraints.Max
 import jakarta.validation.constraints.Min
 import jakarta.validation.constraints.NotBlank
 import jakarta.validation.constraints.Positive
-
+//유효성 검사 필수
 data class ExperienceForm(
     @field:NotBlank(message = "필수값 입니다.")
     val title:String,
